@@ -10,13 +10,16 @@ const NotificationSection = () => {
     try {
       const email = emailInputRef.current?.value;
       if (!email) return;
-      await axios.post('/api/register', {
+      const result = await axios.post('/api/register', {
         email,
       });
-      if (emailInputRef.current?.value) {
-        emailInputRef.current.value = '';
+      console.log(result.data.resultStatus);
+      if (result.data.success) {
+        if (emailInputRef.current?.value) {
+          emailInputRef.current.value = '';
+        }
+        setIsRegistered(true);
       }
-      setIsRegistered(true);
     } catch (e) {
       console.error(e);
     }

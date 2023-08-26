@@ -4,8 +4,8 @@ import { google } from 'googleapis';
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   try {
     if (request.method === 'POST') {
-      await writeRow2(request.body.email);
-      return response.status(200).json({ success: true });
+      const resultStatus = await writeRow2(request.body.email);
+      return response.status(200).json({ success: resultStatus === 200, resultStatus });
     }
   } catch (error) {
     return response.status(500).json({ error: 'Internal server error' });
@@ -31,10 +31,11 @@ export const writeRow2 = async (email: string) => {
     version: 'v4',
     auth,
   });
-  googleSheet.spreadsheets.values.append({
+  const result = await googleSheet.spreadsheets.values.append({
     spreadsheetId: '1u1gRgpx7PEKYkG8VPfqQZQ2BI5c2OHaj0UnYs5uaQ6E',
     range: 'A:B',
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: [[email, dateString]] },
   });
+  return result.status;
 };
