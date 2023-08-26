@@ -4,12 +4,15 @@ import axios from 'axios';
 
 const NotificationSection = () => {
   const [isRegistered, setIsRegistered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const emailInputRef = useRef<HTMLInputElement | null>(null);
 
   const onRegister = async () => {
     try {
+      if (isLoading) return;
       const email = emailInputRef.current?.value;
       if (!email) return;
+      setIsLoading(true);
       const result = await axios.post('/api/register', {
         email,
       });
@@ -20,8 +23,10 @@ const NotificationSection = () => {
         }
         setIsRegistered(true);
       }
+      setIsLoading(false);
     } catch (e) {
       console.error(e);
+      setIsLoading(false);
     }
   };
 
