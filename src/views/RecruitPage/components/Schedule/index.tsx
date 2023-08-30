@@ -11,7 +11,7 @@ const Schedule = () => {
         <OddText>YB 면접</OddText>
         <EvenText>9월 16일 - 9월 17일</EvenText>
         <OddText>YB 최종 결과 발표</OddText>
-        <EvenText>9월 14일</EvenText>
+        <EvenText>9월 20일</EvenText>
         <OddText>오리엔테이션</OddText>
         <EvenText>9월 23일</EvenText>
       </GridWrapper>
