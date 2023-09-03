@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { useRef, useState } from 'react';
 import axios from 'axios';
+import { useRef, useState } from 'react';
 
 const NotificationSection = () => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -16,7 +16,6 @@ const NotificationSection = () => {
       const result = await axios.post('/api/register', {
         email,
       });
-      console.log(result.data.resultStatus);
       if (result.data.success) {
         if (emailInputRef.current?.value) {
           emailInputRef.current.value = '';
