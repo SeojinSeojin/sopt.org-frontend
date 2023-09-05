@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Timer from '@src/components/common/Timer';
 import { useIsMobile } from '@src/hooks/useDevice';
-import SoptSymbol from '@src/views/MainPage/assets/sopt-symbol.svg';
+import SoptSymbol from '@src/views/MainPage/assets/dosopt_symbol.png';
 import dayjs from 'dayjs';
 
 const TARGET_DATE = dayjs('2023-09-09T18:00:00+09:00').toDate();
@@ -14,9 +14,9 @@ export function RecruitFloatingBanner() {
 
   return (
     <Wrapper>
-      <Banner isMobile={isMobile} onClick={() => router.push('/recruit')}>
+      <Banner isMobile={isMobile} onClick={() => isMobile && router.push('/recruit')}>
         <Countdown>
-          <Symbol src={SoptSymbol} alt="솝트 심볼" />
+          <Symbol src={SoptSymbol.src} alt="솝트 심볼" />
           {isMobile ? (
             '33기 YB 지원하기'
           ) : (
@@ -38,12 +38,12 @@ export function RecruitFloatingBanner() {
 const Wrapper = styled.div`
   position: fixed;
   left: 50%;
-  bottom: 120px;
+  bottom: 60px;
   transform: translate(-50%, -50%);
   z-index: 9999;
 
   @media (max-width: 1299px) {
-    bottom: 80px;
+    bottom: 48px;
   }
 `;
 
