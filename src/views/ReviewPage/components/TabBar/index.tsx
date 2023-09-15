@@ -37,6 +37,11 @@ const Tab = ({ onClick, tab, selected }: TabProps) => (
       scale: 1.08,
       boxShadow: '0px 0px 40px #FFFFFF08',
     }}
+    whileTap={{
+      backgroundColor: '#FFFFFF20',
+      scale: 1.08,
+      boxShadow: '0px 0px 40px #FFFFFF08',
+    }}
     animate={selected ? 'selected' : 'not-selected'}
     variants={{
       selected: { backgroundColor: '#FFFFFF1A' },
