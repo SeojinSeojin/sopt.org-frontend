@@ -20,3 +20,7 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
+
+declare module 'framer-motion/dist/framer-motion' {
+  export * from 'framer-motion';
+}
