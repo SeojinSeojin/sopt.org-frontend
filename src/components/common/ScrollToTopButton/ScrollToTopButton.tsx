@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ReactComponent as UpArrow } from '@src/assets/icons/ic_up_arrow.svg';
 import { debounce } from '@src/utils/debounce';
@@ -27,10 +28,15 @@ export function ScrollToTopButton() {
   return (
     <>
       {isScrolled && (
-        <button className={cc([styles.wrapper])} onClick={handleUpBtnClick}>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={cc([styles.wrapper])}
+          onClick={handleUpBtnClick}
+        >
           <span className={styles.text}>UP</span>
           <UpArrow />
-        </button>
+        </motion.button>
       )}
     </>
   );

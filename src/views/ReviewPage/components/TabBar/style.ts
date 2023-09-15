@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const TabBar = styled.div`
   display: flex;
@@ -7,15 +8,13 @@ export const TabBar = styled.div`
   gap: 12px;
 `;
 
-export const Tab = styled.div<{ selected: boolean }>`
+export const Tab = styled(motion.div)`
   cursor: pointer;
   text-align: center;
   padding: 20px 0;
   border-radius: 10px;
-  color: ${({ selected }) => (selected ? '#FFFFFF' : '#cccccc')};
-  background-color: ${({ selected }) => (selected ? '#FFFFFF1A' : 'inherit')};
   font-size: 18px;
-
+  color: white;
   min-width: 160px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);

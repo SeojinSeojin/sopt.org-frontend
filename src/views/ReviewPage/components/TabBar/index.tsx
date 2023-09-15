@@ -29,7 +29,20 @@ type TabProps = {
 };
 
 const Tab = ({ onClick, tab, selected }: TabProps) => (
-  <S.Tab selected={selected} onClick={onClick}>
+  <S.Tab
+    key={selected.toString()}
+    onClick={onClick}
+    whileHover={{
+      backgroundColor: '#FFFFFF20',
+      scale: 1.08,
+      boxShadow: '0px 0px 40px #FFFFFF08',
+    }}
+    animate={selected ? 'selected' : 'not-selected'}
+    variants={{
+      selected: { backgroundColor: '#FFFFFF1A' },
+      'not-selected': { backgroundColor: 'inherit' },
+    }}
+  >
     {tab.label}
   </S.Tab>
 );
