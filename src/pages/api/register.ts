@@ -16,6 +16,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 }
 
 export const writeRow = async (email: string) => {
+  console.log(googleSheetCredential);
   const now = new Date();
   const dateString = `${now.toDateString()} ${now.toTimeString()}`;
   const auth = new google.auth.GoogleAuth({
