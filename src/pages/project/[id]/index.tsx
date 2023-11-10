@@ -23,7 +23,7 @@ const projectOverviewTitle = [
 function ProjectDetailPage({ project }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [isOverviewOpened, setIsOverviewOpened] = useState(true);
   const [isTeamMemberOpened, setIsTeamMemberOpened] = useState(false);
-  if (!project) return;
+  if (!project) return <div>no project</div>;
 
   const {
     projectImage,

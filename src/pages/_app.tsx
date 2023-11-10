@@ -1,4 +1,3 @@
-import * as amplitude from '@amplitude/analytics-browser';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -10,9 +9,7 @@ import SEO from '@src/components/common/SEO';
 import GoogleTagManagerNoscript from '@src/components/googleTagManager/Noscript';
 import GoogleTagManagerScript from '@src/components/googleTagManager/Script';
 import * as gtm from '@src/components/googleTagManager/gtm';
-import { AMPLITUDE_API_KEY } from '@src/lib/constants/client';
 import { global } from '@src/lib/styles/global';
-import { pageViewTrackingEnrichment } from '@src/lib/utils/pageViewTrackingEnrichment';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,12 +20,6 @@ export const queryClient = new QueryClient({
       refetchOnReconnect: false,
     },
   },
-});
-
-amplitude.add(pageViewTrackingEnrichment());
-amplitude.init(AMPLITUDE_API_KEY, {
-  logLevel: amplitude.Types.LogLevel.Warn,
-  defaultTracking: true,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
