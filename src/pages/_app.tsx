@@ -28,10 +28,12 @@ export const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   amplitude.add(pageViewTrackingEnrichment());
-  amplitude.init(AMPLITUDE_API_KEY, {
-    logLevel: amplitude.Types.LogLevel.Debug,
-    defaultTracking: true,
-  });
+  if (!/^\/projects\/\d+$/.test(router.pathname)) {
+    amplitude.init(AMPLITUDE_API_KEY, {
+      logLevel: amplitude.Types.LogLevel.Debug,
+      defaultTracking: true,
+    });
+  }
 
   useEffect(() => {
     router.events.on('routeChangeComplete', gtm.pageview);
