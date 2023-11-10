@@ -156,7 +156,8 @@ function ProjectDetailPage({ project }: InferGetServerSidePropsType<typeof getSe
 export default ProjectDetailPage;
 
 export const getServerSideProps = async ({ query }: NextPageContext) => {
-  const id = query.id as string;
+  const id = query.id;
+  if (typeof id !== 'string') return { props: { project: null } };
   const { project } = await api.projectAPI.getProjectDetail(+id);
   return {
     props: { project },
