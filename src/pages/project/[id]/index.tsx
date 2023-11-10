@@ -158,8 +158,13 @@ export default ProjectDetailPage;
 export const getServerSideProps = async ({ query }: NextPageContext) => {
   const id = query.id;
   if (typeof id !== 'string') return { props: { project: null } };
-  const { project } = await api.projectAPI.getProjectDetail(+id);
-  return {
-    props: { project },
-  };
+  try {
+    const { project } = await api.projectAPI.getProjectDetail(+id);
+    return {
+      props: { project },
+    };
+  } catch (error) {
+    console.error(error);
+    return { props: { project: null } };
+  }
 };
