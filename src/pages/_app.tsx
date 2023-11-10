@@ -10,8 +10,8 @@ import SEO from '@src/components/common/SEO';
 import GoogleTagManagerNoscript from '@src/components/googleTagManager/Noscript';
 import GoogleTagManagerScript from '@src/components/googleTagManager/Script';
 import * as gtm from '@src/components/googleTagManager/gtm';
-import { AMPLITUDE_API_KEY } from '@src/lib/constants/client';
 import { global } from '@src/lib/styles/global';
+import { pageViewTrackingEnrichment } from '@src/lib/utils/pageViewTrackingEnrichment';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,11 +26,11 @@ export const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  //amplitude.add(pageViewTrackingEnrichment());
-  amplitude.init(AMPLITUDE_API_KEY, {
-    logLevel: amplitude.Types.LogLevel.Warn,
-    defaultTracking: true,
-  });
+  amplitude.add(pageViewTrackingEnrichment());
+  // amplitude.init(AMPLITUDE_API_KEY, {
+  //   logLevel: amplitude.Types.LogLevel.Warn,
+  //   defaultTracking: true,
+  // });
 
   useEffect(() => {
     router.events.on('routeChangeComplete', gtm.pageview);
