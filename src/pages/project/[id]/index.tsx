@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ReactComponent as IToggle } from '@src/assets/images/toggle.svg';
 import PageLayout from '@src/components/common/PageLayout';
-import SEO from '@src/components/common/SEO';
 import { api } from '@src/lib/api';
 import { GetProjectDetailResponse, ProjectLinkType } from '@src/lib/types/project';
 import { dateFormat } from '@src/lib/utils/dateFormat';
@@ -43,8 +42,6 @@ function ProjectDetailPage({ project }: GetProjectDetailResponse) {
 
   return (
     <>
-      <SEO projectTitle={name} projectImageURL={projectImage} />
-
       <PageLayout showScrollTopButton>
         <S.Root>
           <S.Container>
@@ -158,7 +155,6 @@ export default ProjectDetailPage;
 
 export const getServerSideProps = async ({ query }: NextPageContext) => {
   const id = query.id as string;
-  console.log(`id: ${id}`);
   const { project } = await api.projectAPI.getProjectDetail(+id);
   return {
     props: { project },
