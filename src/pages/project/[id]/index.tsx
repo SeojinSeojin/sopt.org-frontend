@@ -1,11 +1,12 @@
-import { NextPageContext } from 'next';
+import { InferGetServerSidePropsType, NextPageContext } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { ReactComponent as IToggle } from '@src/assets/images/toggle.svg';
 import PageLayout from '@src/components/common/PageLayout';
+import SEO from '@src/components/common/SEO';
 import { api } from '@src/lib/api';
-import { GetProjectDetailResponse, ProjectLinkType } from '@src/lib/types/project';
+import { ProjectLinkType } from '@src/lib/types/project';
 import { dateFormat } from '@src/lib/utils/dateFormat';
 import * as S from '@src/views/ProjectDetailPage/ProjectDetail.style';
 import { TeamMembersType } from '@src/views/ProjectDetailPage/types';
@@ -19,7 +20,7 @@ const projectOverviewTitle = [
   '프로젝트 링크',
 ];
 
-function ProjectDetailPage({ project }: GetProjectDetailResponse) {
+function ProjectDetailPage({ project }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [isOverviewOpened, setIsOverviewOpened] = useState(true);
   const [isTeamMemberOpened, setIsTeamMemberOpened] = useState(false);
   if (!project) return;
@@ -42,6 +43,7 @@ function ProjectDetailPage({ project }: GetProjectDetailResponse) {
 
   return (
     <>
+      <SEO projectTitle={name} projectImageURL={projectImage} />
       <PageLayout showScrollTopButton>
         <S.Root>
           <S.Container>
