@@ -158,6 +158,7 @@ export default ProjectDetailPage;
 
 export const getServerSideProps = async ({ query }: NextPageContext) => {
   const id = query.id as string;
+  console.log(`id: ${id}`);
   const { project } = await api.projectAPI.getProjectDetail(+id);
   return {
     props: { project },
