@@ -28,7 +28,8 @@ export const queryClient = new QueryClient({
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   amplitude.add(pageViewTrackingEnrichment());
-  if (!/^\/projects\/\d+$/.test(router.pathname)) {
+  console.log(router.pathname);
+  if (router.pathname !== '/project/[id]') {
     amplitude.init(AMPLITUDE_API_KEY, {
       logLevel: amplitude.Types.LogLevel.Debug,
       defaultTracking: true,
