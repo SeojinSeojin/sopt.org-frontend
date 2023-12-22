@@ -23,7 +23,7 @@ export const FloatingMenu = styled.div`
   flex-direction: column;
   gap: 9.27px;
   position: sticky;
-  top: 0;
+  top: 104px;
 
   height: fit-content;
 
@@ -88,17 +88,16 @@ export const Layout = styled(motion.div)`
   flex: 1;
   width: 80%;
   padding: 68px 4vw 0 4vw;
-  border-radius: 20.946px;
+  border-radius: 20.946px 20.946px 0 0;
   background: #f6f8fc;
   z-index: 1;
 
   @media (max-width: 768px) {
     width: 100%;
     padding: 65px 6.25vw 0 6.25vw;
-    border-radius: 20.946px 20.946px 0 0;
   }
 
   @media (max-width: 428px) {
-    padding: 37.36px 28px 0 28px;
+    padding: 37.36px 6.54vw 0 6.54vw;
   }
 `;
