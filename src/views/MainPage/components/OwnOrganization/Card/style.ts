@@ -8,26 +8,35 @@ export const CardWrapper = styled.div<{ background: string }>`
   background-repeat: no-repeat;
   border-radius: 19px;
   padding: 39px 0;
-  height: 380px;
+  width: 100%;
+  aspect-ratio: 29 / 19;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  @media (max-width: 1580px) {
+  /* @media (max-width: 1580px) {
     width: 580px;
     height: 380px;
-  }
+  } */
 
   @media (max-width: 1440px) {
-    width: 512px;
-    height: 432px;
+    aspect-ratio: 32 / 27;
     padding-top: 39px;
     padding-bottom: 23px;
   }
 
+  @media (max-width: 1240px) {
+    padding-top: 28px;
+    padding-bottom: 23px;
+  }
+
+  @media (max-width: 1120px) {
+    width: 512px;
+    height: 432px;
+  }
+
   @media (max-width: 768px) {
     width: max(392px, min(100vw - 200px, 512px));
-    height: calc(max(416px, min(100vw - 200px, 512px)) * 0.84);
   }
 
   @media (max-width: 428px) {
@@ -133,6 +142,10 @@ export const ContentWrapper = styled.div`
   padding: 0 41px;
   flex: 1;
   word-break: keep-all;
+
+  @media (max-width: 1240px) {
+    padding: 0 28px;
+  }
 
   @media (max-width: 428px) {
     padding: 0 20px;

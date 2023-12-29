@@ -455,13 +455,7 @@ export const OWN_ORGANIZATION_LIST: {
       { content: 'SOPT에 필요한 프로덕트를 만드는 정식 기구', weight: 'bold' },
       {
         content:
-          '입니다. 3천여 명의 구성원들을 연결하고 새로운 가치를 제공하기 위한 방법을 끊임없이 고민해요. ',
-        weight: 'normal',
-      },
-      { content: '앞으로도 SOPT를 지속적으로 운영하고자, ', weight: 'bold' },
-      {
-        content:
-          '어떻게 하면 우리의 활동이 더 즐거울 수 있을지, 대내외적으로 잘 알릴 수 있을지 고민할 거예요. ',
+          '입니다. 3천명이 넘는 SOPT 구성원의 연결되지 못한 가치를 발견하고, SOPT 활동을 더욱 편리하고 즐겁게 할 수 있도록 도우며, SOPT를 대내외적으로 더 잘 알리기 위해 앞으로도 고민할거예요.',
         weight: 'normal',
       },
     ],
@@ -532,6 +526,17 @@ export const SOPT_COMMENT_LIST: SoptCommentType[] = [
     },
   },
   {
+    summary: '인생의\n터닝포인트',
+    color: '#FFBEFC',
+    comment:
+      '활동을 더 일찍 시작하지 못한 것이 유일하게 남는 후회일 정도로 SOPT를 통해 많이 성장했다고 느껴요. 커리어적인 부분에서 방향성을 정할 수 있었던, 인생의 터닝포인트와 같은 활동이었어요.',
+    commenter: {
+      name: '권소희',
+      history: '27, 28, 29, 31기 활동',
+      part: '웹',
+    },
+  },
+  {
     summary: '넓어지는 시야',
     color: '#DFFF61',
     comment:
@@ -580,17 +585,6 @@ export const SOPT_COMMENT_LIST: SoptCommentType[] = [
     color: '#CBD0FF',
     comment:
       '열정 넘치는 사람들과 함께하면서 긍정적인 에너지를 많이 얻었고, 혼자였다면 해내기 어려웠을 일들을 성취하는데 많은 도움이 되었어요. 미친듯이 몰입하는 경험을 통해 성취감 및 자신감을 얻었을뿐만 아니라, 앱잼 등 프로젝트를 진행하며 효율적으로 협업하는 방법을 배웠어요.',
-    commenter: {
-      name: '권소희',
-      history: '27, 28, 29, 31기 활동',
-      part: '웹',
-    },
-  },
-  {
-    summary: '인생의\n터닝포인트',
-    color: '#FFBEFC',
-    comment:
-      '활동을 더 일찍 시작하지 못한 것이 유일하게 남는 후회일 정도로 SOPT를 통해 많이 성장했다고 느껴요. 커리어적인 부분에서 방향성을 정할 수 있었던, 인생의 터닝포인트와 같은 활동이었어요.',
     commenter: {
       name: '권소희',
       history: '27, 28, 29, 31기 활동',
